@@ -1,0 +1,474 @@
+1)
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+void preenche_matriz(double m[2][3]){
+	for(int i=0; i<2; i++){
+		for(int j=0; j<3; j++){
+			printf("\nDigite o valor [%d][%d]: ", i+1, j+1);
+			scanf("%lf", &m[i][j]);
+		}
+	}
+}
+void soma_matriz(double mA[2][3], double mB[2][3], double soma[2][3]){
+	for(int i=0; i<2; i++){
+		for(int j=0; j<3; j++){
+			soma[i][j]= mA[i][j] + mB[i][j]; 
+		}
+	}
+}
+void apresenta_matriz(double m[2][3]){
+	for(int i=0; i<2; i++){
+		for(int j=0; j<3; j++){
+			printf("%lf ", m[i][j]);
+		}
+		printf("\n");
+	}
+}
+int main(){
+	double mA[2][3], mB[2][3], soma[2][3];
+	setlocale(LC_ALL, "portuguese");
+	printf("Insira a matriz A");
+	preenche_matriz(mA);
+	printf("\n\nInsira a matriz B");
+	preenche_matriz(mB);
+	soma_matriz(mA, mB, soma);
+	printf("\n\nMtriz soma:\n");
+	apresenta_matriz(soma);
+	getch();
+	return 0;
+}
+
+
+2)
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+void mult_matriz(double mA[3][2], double mB[2][3], double mult[2][2]){
+	int i, j, k;
+	for(i=0; i<2; i++){
+		for(j=0; j<2; j++){
+			mult[i][j] = 0;
+			for(k=0; k<3; k++){
+				mult[i][j] = mult[i][j] + mA[i][k]*mB[k][j];
+			}
+		}
+	}	
+}
+void apresenta_matriz(double mult[2][2]){
+	for(int i=0; i<2; i++){
+		for(int j=0; j<2; j++){
+			printf("%lf ", mult[i][j]);
+		}
+		printf("\n");
+	}
+}
+int main(){
+	double mA[3][2], mB[2][3], mult[2][2];
+	int i, j;
+	setlocale(LC_ALL, "portuguese");
+	printf("\nDigite a matriz A");
+	for(i=0; i<3; i++){
+		for(j=0; j<2; j++){
+			printf("\nDigite o valor [%d][%d]: ", i+1, j+1);
+			scanf("%lf", &mA[i][j]);
+		}
+	}
+	printf("\n\nDigite a matriz B");
+	for(i=0; i<2; i++){
+		for(j=0; j<3; j++){
+			printf("\nDigite o valor [%d][%d]: ", i+1, j+1);
+			scanf("%lf", &mB[i][j]);
+		}
+	}
+	mult_matriz(mA, mB, mult);
+	printf("\nResultado da multiplicação entre A E B\n");
+	apresenta_matriz(mult);
+	getch();
+	return 0;
+}
+
+4) 
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+void preenche_matriz(float m[4][5]){
+	for(int i=0; i<4; i++){
+		for(int j=0; j<5; j++){
+			printf("\nDigite o valor [%d][%d]: ", i+1, j+1);
+			scanf("%f", &m[i][j]);
+		}
+	}
+}
+void encontra_maior(float m[4][5]){
+	int i=0, j=0;
+	float maior = m[i][j];
+	for(i=0; i<4; i++){
+		for( j=0; j<5; j++){
+			if(maior < m[i][j]){
+				maior = m[i][j];
+			}
+		}
+	}
+	printf("\nMaior valor:%0.f", maior);
+	for(i=0; i<4; i++){
+		for(j=0; j<5; j++){
+			if(maior == m[i][j]){
+				printf("\nPosição: [%d][%d]", i+1, j+1);
+			}
+		}
+	}
+}
+int main()
+{
+	float m[4][5];
+	setlocale(LC_ALL, "portuguese");
+	printf("Insira a matriz:\n");
+	preenche_matriz(m);
+	encontra_maior(m);
+	getch();
+	return 0;
+}
+
+5) 
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+void preenche_matriz(float m[3][3]){
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			printf("\nValor da posição [%d][%d]: ", i+1, j+1);
+			scanf("%f", &m[i][j]);
+		}
+	}
+}
+void soma_diagonal(float m[3][3]){
+	float soma = 0;
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			if(i == j){
+				soma = soma + m[i][j];
+			}
+		}
+	}
+	printf("\nSoma da diagonal: %.2f", soma);
+	printf("\nVetor diagonal principal:\n");
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			if(i == j){
+				printf("%.2f ", m[i][j]);
+			}
+		}
+	}
+}
+int main()
+{
+	float m[3][3];
+	setlocale(LC_ALL, "portuguese");
+	printf("\nDigite a matriz:\n");
+	preenche_matriz(m);
+	soma_diagonal(m);
+	getch();
+	return 0;
+}
+
+6)
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+void preenche_matriz(float m[3][3]){
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			printf("\nDigite valor [%d][%d]: ", i+1, j+1);
+			scanf("%f", &m[i][j]);
+		}
+	}
+}
+void diagonal_secundaria(float m[3][3]){
+	float soma = 0;
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			if(i + j == 2){
+				soma = soma + m[i][j];
+			}
+		}
+	}
+	printf("\nSoma da diagonal secundária: %f", soma);
+	printf("\nVetor diagonal secundária");
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			if(i + j == 2){
+				printf(" %.2f ", m[i][j]);
+			}
+		}
+	}
+}
+int main()
+{
+	float m[3][3];
+	setlocale(LC_ALL, "portuguese");
+	printf("Insira a matriz.");
+	preenche_matriz(m);
+	diagonal_secundaria(m);
+	getch();
+	return 0;
+}
+
+7)	
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+void preenche_matriz(float m[3][3]){
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			printf("\nDigite o valor [%d][%d]: ", i+1, j+1);
+			scanf("%f", &m[i][j]);
+		}
+	}
+}
+int soma_linha_1(float m[3][3]){
+	float soma = 0;
+	for(int j=0; j<3; j++){
+		soma = soma + m[0][j];
+	}
+	if(soma != 1){
+		printf("\nNão é uma matriz de permutação!");
+		getch();
+		return 0;
+	}
+}
+int soma_linha_2(float m[3][3]){
+	float soma = 0;
+	for(int j=0; j<3; j++){
+		soma = soma + m[1][j];
+	}
+	if(soma != 1){
+		printf("\nNão é uma matriz de permutação!");
+		getch();
+		return 0;
+	}
+}
+int soma_linha_3(float m[3][3]){
+	float soma = 0;
+	for(int j=0; j<3; j++){
+		soma = soma + m[2][j];
+	}
+	if(soma != 1){
+		printf("\nNão é uma matriz de permutação!");
+		getch();
+		return 0;
+	}
+}
+int main()
+{
+	float m[3][3];
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite a matriz");
+	preenche_matriz(m);
+	soma_linha_1(m);
+	soma_linha_2(m);
+	soma_linha_3(m);
+	printf("\nÉ uma matiz de permutação!");
+	getch();
+	return 0;
+}
+
+8)
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+void preenche_matriz(float m[3][3]){
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			printf("\nDigite o valor [%d][%d]: ", i+1, j+1);
+			scanf("%f", &m[i][j]);
+		}
+	}
+}
+float soma_diag_prin(float m[3][3]){
+	float soma = 0;
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			if( i == j){
+				soma = soma + m[i][j];
+			}
+		}
+	}
+	return soma;
+}
+float soma_diag_sec(float m[3][3]){
+	float soma = 0;
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			if(i+j == 2){
+				soma = soma + m[i][j];
+			}
+		}
+	}
+	return soma;
+}
+float soma_l1(float m[3][3]){
+	float soma = 0;
+	for(int j=0; j<3; j++){
+		soma = soma + m[0][j];
+	}
+	return soma;
+}
+float soma_l2(float m[3][3]){
+	float soma = 0;
+	for(int j=0; j<3; j++){
+		soma = soma + m[1][j];
+	}
+	return soma;
+}
+float soma_l3(float m[3][3]){
+	float soma = 0;
+	for(int j=0; j<3; j++){
+		soma = soma + m[2][j];
+	}
+	return soma;
+}
+float soma_c1(float m[3][3]){
+	float soma = 0;
+	for(int i=0; i<3; i++){
+		soma = soma + m[i][0];
+	}
+	return soma;
+}
+float soma_c2(float m[3][3]){
+	float soma = 0;
+	for(int i=0; i<3; i++){
+		soma = soma + m[i][1];
+	}
+	return soma;
+}
+float soma_c3(float m[3][3]){
+	float soma = 0;
+	for(int i=0; i<3; i++){
+		soma = soma + m[i][2];
+	}
+	return soma;
+}
+int main()
+{
+	float m[3][3];
+	float c1,c2, c3, l1, l2, l3, diag_prin, diag_sec;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite a matriz.");
+	preenche_matriz(m);
+	diag_prin = soma_diag_prin(m);
+	diag_sec = soma_diag_sec(m);
+	l1 = soma_l1(m);
+	l2 = soma_l2(m);
+	l3 = soma_l3(m);
+	c1 = soma_c1(m);
+	c2 = soma_c2(m);
+	c3 = soma_c3(m);
+	if(diag_prin == diag_sec){
+		if(l1 == l2 && l1 == l3){
+			if(c1 == c2 && c1 == c3){
+			printf("\nÉ uma matriz do tipo quadradro mágico.");	
+			}
+		}
+	}	
+	else
+		printf("\nNão é uma matriz do tipo quadradro mágico.");
+	getch();
+	return 0;
+}
+
+13)
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+#include <windows.h>
+#include <string.h>
+
+struct venda
+{
+	char marca[15];
+	int ano;
+	char cor[10];
+	float preco;
+};
+void cadastrar_carro(struct venda vetcarros[], int i){
+	printf("\n\nDigite a marca do carro: ");
+	fflush(stdin);
+	gets(vetcarros[i].marca);
+	printf("\nDigite o ano: ");
+	scanf("%d", &vetcarros[i].ano);
+	printf("\nDigite a cor: ");
+	fflush(stdin);
+	gets(vetcarros[i].cor);
+	printf("\nDigite o valor do preço: ");
+	scanf("%f", &vetcarros[i].preco);
+}
+void pesquisar_preco(struct venda vetcarros[], int num){
+	float pes_preco;
+	int i, flag = 0;
+	printf("\nDigite o preço a ser pesquisado: ");
+	scanf("%f", &pes_preco);
+	for(i=0;i<num; i++){
+		if( pes_preco <= vetcarros[i].preco){
+			flag = 1;
+			printf("\n\nMarca: %s \n Ano: %d ", vetcarros[i].marca, vetcarros[i].ano);
+			printf("\nCor: %s \n Preço: %f ", vetcarros[i].cor, vetcarros[i].preco);
+		}
+	}
+	if(flag ==0);
+		printf("\nNão possui preço menor ou igual.");
+	getch();
+}
+void pesquisar_marca(struct venda vetcarros[], int num){
+	char marca_pesquisa[15];
+	int i, flag = 0;
+	printf("\nDigite a marca a ser pesquisada: ");
+	fflush(stdin);
+	gets(marca_pesquisa);
+	for(i=0; i<num; i++){
+		if(strcmp(marca_pesquisa, vetcarros[i].marca) == 0){
+			flag = 1;
+			printf("\n\nMarca: %s \n Ano: %d ", vetcarros[i].marca, vetcarros[i].ano);
+			printf("\nCor: %s \n Preço: %f ", vetcarros[i].cor, vetcarros[i].preco);
+		}
+	}
+	if(flag == 0)
+		printf("\nMarca não cadastrada.");
+	getch();
+}
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	struct venda vetcarros[20];
+	int num=0, opcao;
+	do{
+		system("cls");
+		printf("Escolha uma opção:\n\n1 - Inserir carro.\n2 - Pesquisa por preço.\n");
+		printf("3 - Pesquisa por marca\n");
+		printf("4 - Sair do programa.\n\n Digite: ");
+		scanf("%d", &opcao);
+		switch(opcao)
+		{
+			case 1:
+				system("cls");
+				cadastrar_carro(vetcarros, num);
+				num++;
+				break;
+			case 2:
+				system("cls");
+				pesquisar_preco(vetcarros, num);
+				break;
+			case 3:
+				system("cls");
+				pesquisar_marca(vetcarros, num);
+				break;
+			default :
+				if(opcao != 4){
+					printf("\n\nOpção inválida!");
+					getch();	
+				}
+		}
+	}while(opcao != 4);
+	getch();
+	return 0;	
+}

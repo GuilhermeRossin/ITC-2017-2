@@ -1,0 +1,492 @@
+1) CONCLUIDO
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+int main()
+{
+	int N, i, a = 1;
+	float x; 
+	double soma = 0, num = 1, den = 1;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite o valor de N: ");
+	scanf("%d", &N);
+	printf("\nDigite o valor de x: ");
+	scanf("%f", &x);
+	for(i=0; i<=N; i++){
+		soma = soma + num/den;
+		num = num*x;
+		den = den*a;
+		a++;
+	}
+	printf("\nValor de E: %lf", soma);
+	getch();
+	return 0;
+}
+
+
+2)CONCLUIDO
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+#include <stdlib.h>
+int main()
+{
+	double soma = 0, num = 2, den = 1;
+	int n = 1, i = 1;
+	setlocale(LC_ALL, "portuguese"); 
+	while(n<2){
+		system("cls");
+		printf("Digite o número de termos: ");
+		scanf("%d", &n);
+	}
+	while(i<=n){
+		soma = soma + num / den;
+		num = num + den;
+		den = num - den;
+		i++;
+	}
+	printf("\nValor da soma: %lf", soma);
+	getch();
+	return 0;
+}
+
+3) CONCLUIDO
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+
+void preenche_vetor(float vet[], int num)
+{
+	for(int i=0; i<num; i++){
+		printf("\nDigite o numero %d: ", i+1);
+		scanf("%f", &vet[i]);
+	}
+}
+int main()
+{
+	const int n=3;
+	int i, j, p;
+	float vetorA[3], vetorB[3], vetorPRO[9];
+	setlocale(LC_ALL, "portuguese");
+	printf("Vetor numerico A");
+	printf("\n");
+	preenche_vetor(vetorA, n);
+	printf("\n");
+	printf("Vetor numerico B");
+	printf("\n");
+	preenche_vetor(vetorB, n);
+	printf("\n");
+	printf("\nProduto de Kronecker:");
+	for(i=0; i<3; i++){
+		for(j=0; j<3; j++){
+			vetorPRO[p] = vetorA[i] * vetorB[j];
+			p++;
+		}
+	}
+	for(i=0; i<9; i++){
+		printf("%2.f ", vetorPRO[i]);
+	}
+	getch();
+	return 0;
+}
+
+4)CONCLUIDO
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+#include <math.h>
+int main()
+{
+	int num, inv[5], aux, i;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite o valor do número: ");
+	scanf("%d",&num);
+	for(i=0;i<5;i++)
+	{
+		inv[i]= num%10;
+		num/=10;
+		printf("%d",inv[i]);	
+	
+	}
+	getch();
+	return 0;
+}
+
+
+5) CONCLUIDO
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+#include <string.h>
+int main()
+{
+	char str1[100],str2[100];
+	int i,j=0;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite a primeira string: ");
+	gets(str1);
+	fflush(stdin);
+	printf("Digite a segunda string: ");
+	gets(str2);
+	fflush(stdin);
+	for(i=0;str1[i]!='\0';i++){
+		if(str1[i]!=str2[i]){
+			j++;
+				}	
+	}
+	if(j==0 && strlen(str1)==strlen(str2)) printf("\nAs string são iguais");
+	else printf("\nAs string são diferentes");
+	getch();
+	return 0;
+}
+
+
+6) CONCLUIDO
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+#include <string.h>
+int main()
+{
+	char nome[100];
+	int i;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite nome: ");
+	gets(nome);
+	fflush(stdin);
+	for(i=0; nome[i]!= '\0'; i++);
+	printf("\nA string possui o tamanho de %d caracteres", i);
+	getch();
+	return 0;
+}
+
+7) CONCLUIDO
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+#include <string.h>
+
+void inverter(char str[], int num){
+	for(int i=num-1; i>=0; i--){
+		printf("%c", str[i]);
+	}
+}
+
+int main()
+{
+	char nome[31];
+	int num_carac;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite o nome: ");
+	fflush(stdin);
+	gets(nome);
+	num_carac = strlen(nome);
+	printf("\nNome invertido:");
+	inverter(nome, num_carac);
+	getch();
+	return 0;
+}
+
+8) CONCLUIDO
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+#include <string.h>
+
+int main()
+{
+	char msg1[200], msg2[200];
+	int num_carac, i, palindromo, cont, j = 0;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite a mensagem: ");
+	fflush(stdin);
+	gets(msg1);
+	num_carac = strlen(msg1);
+	j = num_carac -1;
+	for(i = 0; msg1[i] != '\0'; i++) {
+    	if(msg1[i] == msg1[j]){
+    		cont ++;
+    		j--;
+    	}
+    	else 
+    		j--;
+    }
+    cont--;
+    if(cont == i)
+    	printf("\nÉ palindromo");
+    else
+    	printf("\nNão é palindromo");
+	getch();
+	return 0;
+}
+
+9) EU SEI Q PODE ARRUMAR MAIS VAI ASSIM MSM
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+void preenche_vetor(float vet[], int num){
+	for(int i=0; i<num; i++){
+		printf("\nDigite o valor da posição %d: ", i+1);
+		scanf("%f", &vet[i]);
+	}
+}
+float encontra_maior(float vet[], int num){
+	float maior_nota = vet[0];
+	for(int i=0; i<num; i++){
+		if(maior_nota < vet[i])
+			maior_nota = vet[i];
+	}
+	return maior_nota;
+}
+float encontra_menor(float vet[], int num){
+	float menor_nota = vet[0];
+	for(int i=0; i<num; i++){
+		if(menor_nota > vet[i]);
+			menor_nota = vet[i];
+	}
+	return menor_nota;
+}
+void inverte_vetor(float vet[], int num){
+	for(int i=num-1; i>=0; i--){
+		printf("%.0f ", vet[i]);
+	}
+}
+void encontrar_posicao(float vet[], int num, int dese){
+	for(int i=0; i<num; i++){
+		if(dese == vet[i])
+			printf("%d ", i+1);
+	}
+}
+float vetor_crescente(float vet[], int num){
+	for(int i=0; i<num-1; i++){
+		for(int j=i+1; j<num; j++){
+			if(vet[i]>vet[j]){
+				float b=vet[i];
+				vet[i]=vet[j];
+				vet[j]=b;
+			}
+		}
+	}
+	for(int i=0; i<num; i++){
+		printf("%.0f ", vet[i]);
+	}
+}
+float vetor_decrescente(float vet[], int num){
+	for(int i=0; i<num-1; i++){
+		for(int j=i+1; j<num; j++){
+			if(vet[i]<vet[j]){
+				float b=vet[i];
+				vet[i]=vet[j];
+				vet[j]=b;
+			}
+		}
+	}
+	for(int i=0; i<num; i++){
+		printf("%.0f ", vet[i]);
+	}
+}
+int main()
+{
+	const int n=200;
+	char opcao;
+	int i, num_termos, num_dese;
+	float veta[n], vetb[n];
+	setlocale(LC_ALL, "portuguese");
+	do{
+		printf("Digite o número de termos dos vetores: ");
+		scanf("%d", &num_termos);
+	}while(num_termos<1 || num_termos>200);
+	printf("\nDigite o vetor");
+	preenche_vetor(veta, num_termos);
+	printf("\nDigite A para encontrar o maior número");
+	printf("\nDigite B para encontrar o menor número");
+	printf("\nDigite C para ordenar cescentemente");
+	printf("\nDigite D para ordenar decescentemente");
+	printf("\nDigite E para inverter a ordem dos vetores");
+	printf("\nDigite F para encontrar a(s) posição(s) de um número n informado");
+	printf("\nDigite G para inserir um novo vetor");
+	printf("\nDigite H para sair do programa"); 
+	printf("\nDigite: ");
+	scanf("%c", &opcao);
+	switch(opcao)
+	{
+		case 'a':
+			printf("\nMaior número do vetor A: %.0f", encontra_maior(veta, num_termos));
+			break ;
+		case 'b':
+			printf("\nMenor número do vetor A: %.0f", encontra_menor(veta, num_termos));
+			break;
+		case 'c':
+			printf("\nVetor crescente:");
+			vetor_crescente(veta, num_termos);
+			break;
+		case 'd':
+			printf("\nVetor descrescente:");
+			vetor_decrescente(veta, num_termos);
+			break;
+		case 'e':
+			printf("\nVetor A invertido:");
+			inverte_vetor(veta, num_termos);
+			break;
+		case 'f':
+			printf("\nDigite o número: ");
+			scanf("%d", &num_dese);
+			encontrar_posicao(veta, num_termos, num_dese);
+			break;
+		case 'g':
+			printf("\nDigite o novo vetor");
+			preenche_vetor(vetb, num_termos);
+			break;	
+		case 'h':
+			break;
+		default:
+			printf("\nDigitou uma opção inválida.");
+	}
+	getch();
+	return 0;
+}
+
+10) TALVEZ
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+void preenche_vetor( float vet[], int num){
+	for(int i=0; i<num; i++){
+		printf("\nDigite o valor da posição %d: ", i+1);
+		scanf("%f", &vet[i]);
+	}
+}
+float apresenta_vetor(float vet[], int num){
+	for(int i=0; i<num; i++){
+		printf("%.0f", vet[i]);
+	}
+}
+int main()
+{
+	setlocale(LC_ALL,"portuguese");
+	const int n=200;
+	int i, num_termos, num_divi;
+	float vetor_nor[n], vetor_imp[n], vetor_par[n];
+	do{
+		printf("\nDigite o número de termos do vetor: ");
+		scanf("%d", &num_termos);
+	}while( num_termos<1 || num_termos>200);
+	printf("\nDigite o vetor A:");
+	preenche_vetor(vetor_nor, num_termos);
+	for(i=0; i<n; i++){
+		vetor_nor[i] = num_divi;
+		if(num_divi % 2 != 0){
+			num_divi = vetor_imp[i];
+		}
+		if(num_divi % 2 == 0){
+			num_divi = vetor_par[i];
+		}
+	}
+	printf("\nVetor com números par");
+	apresenta_vetor(vetor_par, num_termos);
+	printf("\nVetor com números impar");
+	apresenta_vetor(vetor_imp, num_termos);
+	getch();
+	return 0;
+}
+
+11)VAI ASSIM MSM
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+
+int main()
+{
+	int a=1, b=2, c=3, i, mult = 0, num;
+	setlocale(LC_ALL, "portuguese");
+	printf("\nDigite o número que se deseja saber se é triangular: ");
+	scanf("%d", &num);
+	while(mult != num || mult < num){
+		mult = a*b*c;
+		a++;
+		b++;
+		c++;
+	}
+	if(mult == num)
+		printf("\nO  número digitado é triangular");
+	else
+		printf("\nO número digitado não é triangular");
+	getch();
+	return 0;
+}
+
+
+12) CONCLUIDO
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+
+void trocar_espaco(char msg[]){
+	for(int i=0; msg[i] != '\0'; i++){
+		if(msg[i] == ' ' && msg[i+1] != ' ' && msg[i+1] != '\0'){
+			msg[i] = '_';
+		}
+	}
+}
+void trocar_a_por_o(char str[]){
+	for(int i=0; str[i] != '\0'; i++){
+		if(str[i] == 'a')
+			str[i] = 'o';
+	}
+}
+void trocar_e_por_p(char str[]){
+	for( int i=0; str[i] != '\0'; i++){
+		if(str[i] == 'e')
+			str[i] = 'p';
+	}
+}
+void inverte_msg(char str[], int num){
+	for(int i = num; i>=0; i--){
+		printf("%c", str[i]);
+	}
+}
+int main()
+{
+	char msg[300];
+	int num_carac;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite a mensagem:");
+	fflush(stdin);
+	gets(msg);
+	trocar_espaco(msg);
+	trocar_a_por_o(msg);
+	trocar_e_por_p(msg);
+	num_carac = strlen(msg);
+	printf("\nMensagem ciptografada:");
+	inverte_msg(msg, num_carac);
+	getch();
+	return 0;
+}
+
+
+13)CONCLUIDO
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+
+void converte(char str[]){
+	for(int i=0; str[i] != '\0'; i++){
+		if(str[i]>= 'a' && str[i]<='z')
+			str[i] = str[i] - 32;
+	}
+}
+int main()
+{
+	char msg[300];
+	int i;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite a mensagem: ");
+	fflush(stdin);
+	gets(msg);
+	converte(msg);
+	printf("\nMensgaem em letras maiúsculas: %s", msg);
+	getch();
+	return 0;
+}

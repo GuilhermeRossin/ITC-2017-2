@@ -1,0 +1,245 @@
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+#include <windows.h>
+
+struct endereco
+{
+	char rua[30];
+	int num;
+	char cep[20];
+	char bairro[30];
+};
+
+struct cliente
+{
+	char nome[50];
+	char codigo[7];
+	float saldo;
+	struct endereco end;
+};
+
+void cadastrar_cliente(struct cliente vet_cliente[], int i)
+{
+	printf("\n\nDigite o nome da cliente: ");
+	fflush(stdin);
+	gets(vet_cliente[i].nome);
+	printf("\n\nDigite o código: ");
+	fflush(stdin);
+	gets(vet_cliente[i].codigo);
+	printf("\n\nDigite o saldo: ");
+	scanf("%f", &vet_cliente[i].saldo);
+	printf("\n\nDigite a rua: ");
+	fflush(stdin);
+	gets(vet_cliente[i].end.rua);
+	printf("\n\nDigite o número: ");
+	scanf("%d", &vet_cliente[i].end.num);
+	printf("\n\nDigite o CEP: ");
+	fflush(stdin);
+	gets(vet_cliente[i].end.cep);
+	printf("\n\nDigite o bairro: ");
+	fflush(stdin);
+	gets(vet_cliente[i].end.bairro);
+}
+
+void pesquisa_cli(struct cliente vet_cliente[], int num)
+{
+	char pes_codigo[7];
+	int i, flag=0;
+	printf("\n\nDigite o código: ");
+	fflush(stdin);
+	gets(pes_codigo);
+	for(i=0; i<num; i++)
+	{
+		if(strcmp(pes_codigo, vet_cliente[i].codigo) == 0)
+		{
+			flag =1;
+			printf("\n\nNome: %s\nSaldo: %f ", vet_cliente[i].nome, vet_cliente[i].saldo);
+			printf("\nRua: %s\nNúmero: %d", vet_cliente[i].end.rua, vet_cliente[i].end.num);
+			printf("\nCEP: %s\nBairro: %s", vet_cliente[i].end.cep, vet_cliente[i].end.bairro);
+		}
+	}
+	if(flag == 0)
+		printf("\n\nCliente não encontrada.");
+	getch();	
+}
+
+int excluir_cli(struct cliente vet_cliente[], int num)
+{
+	char pes_codigo[7];
+	int i, flag=0, op, indice_cli;
+	printf("\n\nDigite o código: ");
+	fflush(stdin);
+	gets(pes_codigo);
+	for(i=0; i<num; i++)
+	{
+		if(strcmp(pes_codigo, vet_cliente[i].codigo) == 0)
+		{
+			flag =1;
+			printf("\n\nNome: %s\nSaldo: %f ", vet_cliente[i].nome, vet_cliente[i].saldo);
+			printf("\nRua: %s\nNúmero: %d", vet_cliente[i].end.rua, vet_cliente[i].end.num);
+			printf("\nCEP: %s\nBairro: %s", vet_cliente[i].end.cep, vet_cliente[i].end.bairro);
+			break;
+		}
+	}
+	if(flag == 1)
+	{
+		printf("Deseja excluir a cliente? \nDigite 1 - sim\nDigite 2 - não: ");
+		scanf("%d", &op);
+		if(op == 1)
+		{
+			for( i = indice_cli; i<num; i++)
+				vet_cliente[i] = vet_cliente[i+1];
+			return num-1;
+		}
+	}
+	else
+	{
+		printf("\nCliente não cadastrada.");
+		getch();
+	}
+	return num;
+}
+
+void listar_cli(struct cliente vet_cliente[], int num)
+{
+	for(int i=0; i<num; i++)
+	{
+		printf("\n\nNome: %s\nSaldo: %f ", vet_cliente[i].nome, vet_cliente[i].saldo);
+		printf("\nRua: %s\nNúmero: %d", vet_cliente[i].end.rua, vet_cliente[i].end.num);
+		printf("\nCEP: %s\nBairro: %s", vet_cliente[i].end.cep, vet_cliente[i].end.bairro);
+	}
+	getch();
+}
+
+void editar_cliente(struct cliente vet_cliente[], int num)
+{
+	char pes_codigo[7];
+	int i, flag=0;
+	printf("\n\nDigite o código: ");
+	fflush(stdin);
+	gets(pes_codigo);
+	for(i=0; i<num; i++)
+	{
+		if(strcmp(pes_codigo, vet_cliente[i].codigo) == 0)
+		{
+			printf("\n\nDigite o nome da cliente: ");
+			fflush(stdin);
+			gets(vet_cliente[i].nome);
+			printf("\n\nDigite o código: ");
+			fflush(stdin);
+			gets(vet_cliente[i].codigo);
+			printf("\n\nDigite o saldo: ");
+			scanf("%f", &vet_cliente[i].saldo);
+			printf("\n\nDigite a rua: ");
+			fflush(stdin);
+			gets(vet_cliente[i].end.rua);
+			printf("\n\nDigite o número: ");
+			scanf("%d", &vet_cliente[i].end.num);
+			printf("\n\nDigite o CEP: ");
+			fflush(stdin);
+			gets(vet_cliente[i].end.cep);
+			printf("\n\nDigite o bairro: ");
+			fflush(stdin);
+			gets(vet_cliente[i].end.bairro);
+		}
+	}
+	if(flag == 0)
+		printf("\n\nCliente não cadastrada.");
+	getch();
+}
+
+void calculo_saldo(struct cliente vet_cliente[], int num)
+{
+	int i;
+	float soma = 0,media;
+	for(i=0; i<num; i++)
+	{
+		soma = soma + vet_cliente[i].saldo;
+	}
+	printf("\n\nSaldo total: %f", soma);
+	media = soma / num;
+	printf("\nSaldo médio: %f", media);
+	getch();
+}
+
+void modificar_saldo(struct cliente vet_cliente[], int num)
+{
+	char pes_codigo[7];
+	int i, flag =0;
+	printf("\n\nDigite o código: ");
+	fflush(stdin);
+	gets(pes_codigo);
+	for(i=0; i<num; i++)
+	{
+		if(strcmp(pes_codigo, vet_cliente[i].codigo) == 0);
+		{
+			printf("\n\nDigite o novo valor para o saldo: ");
+			scanf("%f", vet_cliente[i].saldo);
+		}
+	}
+	if(flag == 0)
+	{
+		printf("\n\nCliente não cadastrada.");
+	}
+	getch();
+}
+int main()
+{
+	setlocale(LC_ALL, "portuguese");
+	struct cliente vet_cliente[200];
+	int num_cli = 0, opcao;
+	do
+	{
+		system("cls");
+		printf("Escolha a opção:");
+		printf("\n\n1 - Cadastrar cliente.\n\n2 - Pesquisar por código");
+		printf("\n\n3 - Excluir cliente.\n\n4 - Listrar clientes.");
+		printf("\n\n5 - Editar cliente já cadastrada.\n\n6 - Calcular saldo total e média.");
+		printf("\n\n7 - Modificar saldo existente.\n\n8 - Sair do programa.");
+		printf("\n\nDigite a opção: ");
+		scanf("%d", &opcao);
+		switch(opcao)
+		{
+			case 1:
+				system("cls");
+				cadastrar_cliente(vet_cliente, num_cli);
+				num_cli++;
+				break;
+			case 2:
+				system("cls");
+				pesquisa_cli(vet_cliente, num_cli);
+				break;
+			case 3:
+				system("cls");
+				num_cli = excluir_cli(vet_cliente, num_cli);
+				break;
+			case 4:
+				system("cls");
+				printf("\n\nLista de clientes cadastrados");
+				listar_cli(vet_cliente, num_cli);
+				break;
+			case 5:
+				system("cls");
+				editar_cliente(vet_cliente, num_cli);
+				break;
+			case 6:
+				system("cls");
+				calculo_saldo(vet_cliente, num_cli);
+				break;
+			case 7:
+				system("cls");
+				modificar_saldo(vet_cliente, num_cli);
+				break;
+			default: 
+				if(opcao != 8)
+				{
+					printf("Opção inválida.");
+					getch();
+				}
+		}
+	}while(opcao != 8);
+	getch();
+	return 0;
+}

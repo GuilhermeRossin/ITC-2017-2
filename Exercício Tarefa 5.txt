@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+void trocar_espaco(char msg[]){
+	for(int i=0; msg[i] != '\0'; i++){
+		if(msg[i] == ' ' && msg[i+1] != ' ' && msg[i+1] != '\0'){
+			msg[i] = '_';
+		}
+	}
+}
+void apresenta_vetor(char msg[]){
+	for(int i=0; msg[i] != '\0'; i++){
+		printf("%c", msg[i]);
+	}
+}
+int achar_posicao(char msg[]){
+	
+	for(int i=0; msg[i] != '\0'; i++){
+		if(msg[i] == '_' && msg[i+1] != '_' && msg[i+1] != '\0'){
+			printf("%d ", i+1);
+		}
+	}
+}
+int main()
+{
+	char str1[300];
+	setlocale(LC_ALL, "portuguese");
+	printf("\nDigite a mensagem: ");
+	fflush(stdin);
+	gets(str1);
+	trocar_espaco(str1);
+	printf("\nMensagem com '_': ");
+	apresenta_vetor(str1);
+	printf("\nPosição onde aparecem espaços: ");
+	achar_posicao(str1);
+	getch();
+	return 0;
+}

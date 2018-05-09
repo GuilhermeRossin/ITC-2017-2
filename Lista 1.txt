@@ -1,0 +1,374 @@
+
+1)
+
+#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+	int a, b;
+	printf("Digite um numero inteiro A: ");
+	scanf("%d", &a);
+	printf("\nDigite um numero inteiro B: ");
+	scanf("%d", &b);
+	if( a % b == 0){
+		printf("\nO numero A e divisivel por B.");
+	}
+	else {
+		printf("\nO numero A nao e divisivel por B.");
+	}
+	getch();
+	return 0;
+}
+
+
+2)
+#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+	float horai, mini, segi, demin, segt, horaf, minf, segf, horae, mine, sege;
+	printf("Digite a hora de inicio: ");
+	scanf("%f", &horai);
+	printf("\nDigite o minuto de incio: ");
+	scanf("%f", &mini);
+	printf("\nDigite o segundo de inicio: ");
+	scanf("%f", &segi);
+	printf("\nDigite a duracao do experimento em segundos: ");
+	scanf("%f", &demin);
+	horae = (demin / 3600);
+	mine = (demin - (horae * 3600) ) / 60;
+	sege = (demin - (horae * 3600) ) - (mine * 60); 
+	horaf = horae + horai;
+	printf("\nHora final: %f", horaf);
+	minf = mine + mini;
+	printf("\nMinuto final: %f", minf);
+	segf = sege + segi;
+	printf("\nSegundo final: %f", segf);
+	getch();
+	return 0;
+}
+
+
+3)
+#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+    int ano;
+	printf("Digite o ano: ");
+	scanf("%d", &ano);
+	if(ano % 4 == 0 || ano % 400 == 0 && ano % 100 != 0)
+	{
+		printf("\nO ano e bissexto");
+	}
+	else{
+		printf("\nO ano nao e bissexto");
+	}
+	getch ();
+	return 0;
+}
+
+
+4) 
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+int main()
+{
+	int num, a, b, c, d, soma;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite um número de três algarismos: ");
+	scanf("%d", &num);
+	a = (num/100);
+	b = (num - a*100)/10;
+	c = (num - a*100 - b*10);
+	soma = a + b + c;
+	printf("\nO valor da soma dos algarismos é: %d", soma);
+	getch();
+	return 0;
+}
+
+
+5)
+#include <stdio.h>
+#include <conio.h>
+
+int main()
+{
+	int valorp, c100, c50, c20, c10, c5, c2, c1;
+	printf("Digite o valor a ser pago: ");
+	scanf("%d", &valorp);
+	c100 = valorp / 100;
+	c50 = (valorp - (c100 * 100)) / 50;
+	c20 = (valorp - (c100 * 100 + c50 * 50)) / 20;
+	c10 = (valorp - (c100 * 100 + c50 * 50 + c20 * 20)) / 10;
+	c5 = (valorp - (c100 * 100 + c50 * 50 + c20 * 20 + c10 * 10)) / 5;
+	c2 = (valorp - (c100 * 100 + c50 * 50 + c20 * 20 + c10 * 10 + c5 * 5)) / 2;
+	c1 = (valorp - (c100 * 100 + c50 * 50 + c20 * 20 + c10 * 10 + c5 * 5 + c2 * 2));
+	printf("\nValor de cedulas de R$100: %d", c100);
+	printf("\nValor de cedulas de R$50: %d", c50);
+	printf("\nValor de cedulas de R$20: %d", c20);
+	printf("\nValor de cedulas de R$10: %d", c10);
+	printf("\nValor de cedulas de R$5: %d", c5);
+	printf("\nValor de cedulas de R$2: %d", c2);
+	printf("\nValor de cedulas de R$1: %d", c1);
+	getch();
+	return 0;
+}
+
+
+6) 
+#include <stdio.h>
+#include <conio.h>
+#include <math.h>
+
+int main()
+{
+	int preal1, pimag1, preal2, pimag2, adcr, adci, subr, subi, mult1, mult2, mod1, mod2;
+	printf("Digite a parte real do primeiro numero: ");
+	scanf("%d", &preal1);
+	printf("\nDigite a parte imaginaria do primeiro numero: ");
+	scanf("%d", &pimag1);
+	printf("\nDigite a parte real do segundo numero: ");
+	scanf("%d", &preal2);
+	printf("\nDigite a parte imaginaria do segundo numero: ");
+	scanf("%d", &pimag2);
+	adcr = ( preal1 + preal2 );
+	adci = ( pimag1 + pimag2 );
+	printf("\nResultado da adicao: %d + %di", adcr, adci);
+	subr = ( preal1 - preal2 );
+	subi = ( pimag1 - pimag2 );
+	printf("\nResultado da subtracao: %d + %di", subr, subi);
+	mult1 = ( preal1 * preal2 - pimag1 * pimag2 );
+	mult2 = ( preal1 * pimag2 + pimag1 * preal2);
+	printf("\nResultado da multiplicacao: %d + %di", mult1, mult2); 
+	mod1 = sqrt(pow(preal1, 2) + pow(pimag1, 2));
+	mod2 = sqrt(pow(preal2, 2) + pow(pimag2, 2));
+	printf("\nValor do modulo do primeiro numero: %d", mod1);
+	printf("\nvalor do modulo do segundo numero: %d", mod2);
+	getch();
+	return 0;
+}
+
+
+7)
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+#include <math.h>
+int main()
+{
+	double a, r, x, y;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite o valor do raio: ");
+	scanf("%lf", &r);
+	printf("\nDigite o valor do argumento: ");
+	scanf("%lf", &a);
+	x = r*cos(a);
+	y = r*sin(a);
+	printf("\nO valor de x: %lf, e y: %lf", x, y);
+	getch();
+	return 0;
+}
+
+
+8)
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+int calculo_MDC (int alg1, int alg2)
+{
+	int resto, MDC;
+	resto = alg1%alg2;
+	while(resto != 0){
+		alg1 = alg2;
+		alg2 = resto;
+		resto =alg1%alg2;
+	}
+	return alg2;
+}
+
+int mmc(int num1, int num2) 
+{
+    int mmc, aux, i;
+    for (i = 2; i <= num2; i++) {
+        aux = num1 * i;
+        if ((aux % num2) == 0) {
+            mmc = aux;
+            i = num2 + 1;
+        }
+    }
+    return mmc;
+}
+
+int main()
+{
+	int num1, num2, den1, den2, multnum, multden, quociden, quocinum, MDC1, MDC2, num_re1, num_re2, den_re1, den_re2, MMC, fat1, fat2, soma_fra, sub_fra;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite o numerador da primeira fração: ");
+	scanf("%d", &num1);
+	printf("\nDigite o denominador da primeira fração: ");
+	scanf("%d", &den1);
+	printf("\nDigite o numerador da segunda fração: ");
+	scanf("%d", &num2);
+	printf("\nDigite o denominador da segunda fração: ");
+	scanf("%d", &den2);
+	MDC1 = calculo_MDC(num1, den1);
+	MDC2 = calculo_MDC(num2, den2);	
+	num_re1 = num1 / MDC1;
+	den_re1 = den1 / MDC1;
+	printf("\nPrimeira fração simplificada: %d/%d", num_re1, den_re1);
+	num_re2 = num2 / MDC2;
+	den_re2 = den2 / MDC2;
+	printf("\nSegunda fração simplificada: %d/%d", num_re2, den_re2);
+	MMC = mmc(den_re1, den_re2);
+	fat1 = MMC / den_re1;	
+	fat2 = MMC / den_re2;
+	soma_fra = (num_re1 * fat1) + (num_re2 * fat2);
+	sub_fra = (num_re1 * fat1) - (num_re2 * fat2);
+	printf("\nValor da soma das frações: %d/%d", soma_fra, MMC);
+	printf("\nValor da subtração das frações: %d/%d", sub_fra, MMC);
+	quocinum = num_re1*den_re2;
+	quociden = den_re1*num_re2;
+	printf("\nValor do quociente das frações: %d/%d ", quocinum, quociden);
+	multnum = num_re1*num_re2;
+	multden = den_re1*den_re2;
+	printf("\nValor da multiplicação: %d/%d ", multnum, multden);
+	getch();
+	return 0;
+}
+
+
+9)
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+
+int main()
+{
+	int num;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite um valor até 100: ");
+	scanf("%d", &num);
+	printf("%d ", num);
+	while(num < 100)
+	{
+		num = num * 3;
+		printf("%d ", num);
+	}
+	getch();
+	return 0;
+}
+
+
+10)
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+#include <stdlib.h>
+int main()
+{
+	float r1, r2, rt;
+	setlocale(LC_ALL, "portuguese");
+	do
+	{
+		printf("Digite o valor da primeira resistência: ");
+		scanf("%f", &r1);
+		printf("\nDigite o valor da segunda resistência: ");
+		scanf("%f", &r2);
+		rt = (r1+r2) / (r1+r2);	
+		system("cls");
+	}while(rt > 0);
+	getch();
+	return 0;
+}
+
+11)
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+int main()
+{
+	int a = 10, soma = 0;
+	setlocale(LC_ALL, "portuguese");
+	printf("Ordem dos números: ");
+	while( a>=3){
+		printf("%d ", a);
+		soma = soma +a;
+		a--;
+		
+	}
+	printf("\nValor da soma: %d", soma);
+	getch();
+	return 0;
+}
+
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+int main()
+{
+	int a = 10, soma = 0;
+	setlocale(LC_ALL, "portuguese");
+	printf("Ordem dos números: ");
+	for(a=10; a>=3; a--){
+		printf("%d ", a);
+		soma = soma + a;
+	}
+	printf("\nValor da soma: %d", soma);
+	getch();
+	return 0;
+}
+
+
+12)
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+int main()
+{
+	int num = 1;
+	setlocale(LC_ALL, "portuguese");
+	while(num <= 100){
+		if(num%2==0){
+			printf("\nMultiplo de 2: %d", num);
+		}
+		if(num%3==0){
+			printf("\nMultiplo de 3: %d", num);
+		}
+		if(num%5==0){
+			printf("\nMultiplo de 5: %d", num);
+		}
+		if(num%2==0 && num%3==0 && num%5==0){
+			printf("\nMultiplo simultaneamente: %d", num);	
+		}
+		num++;
+	}
+	getch();
+	return 0;
+}
+
+
+13)
+#include <conio.h>
+#include <stdio.h>
+#include <locale.h>
+int main()
+{
+	int expo, base, i=0, pot=1;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite o valor da base: ");
+	scanf("%d", &base);
+	printf("\nDigite o valor do expoente: ");
+	scanf("%d", &expo);
+	do{
+		pot = pot*base;
+		i++;
+	}while(i<expo);
+	printf("\nValor obtido: %d", pot);
+	getch();
+	return 0;	
+}

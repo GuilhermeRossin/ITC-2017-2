@@ -1,0 +1,76 @@
+1)
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <locale.h>
+int main()
+{
+	int num = 0, x = 1;
+	setlocale(LC_ALL, "portuguese");
+	while(num%2==0 || num<=0)
+	{
+		system("cls");
+		printf("Digite um número impar e positivo: ");
+		scanf("%d", &num);
+	}
+	printf("\nTodos os números impares de num - 1: \n \n");
+	while(num>=x)
+	{
+		printf("%d ", num);
+		num-=2;
+	}
+	getch();
+	return 0;
+}
+
+
+2)
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <locale.h>
+int main()
+{
+	int num = 0, x = 2;
+	setlocale(LC_ALL, "portuguese");
+	while(num%2!=0 || num<=0)
+	{
+		system("cls");
+		printf("Digite um número par e positivo: ");
+		scanf("%d", &num);
+	}
+	printf("\nTodos os números pares de 2 - num: \n \n");
+	while(x<=num)
+	{
+		printf("%d ", x);
+		x+=2;
+	}
+	getch();
+	return 0;
+}
+
+
+3)
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <locale.h>
+int main()
+{
+	float vi_divida, vt_divida, tempo_mes, tempo_ano, tempo = 0 ;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite o valor da dívida: ");
+	scanf("%f", &vi_divida);
+	printf("\nDigite o total de tempo em anos: ");
+	scanf("%f", &tempo_ano);
+	tempo_mes = tempo_ano*12;
+	vt_divida = vi_divida;
+	while(tempo <= tempo_mes)
+	{
+		vt_divida = 1.075*vt_divida;
+		tempo++;
+	}
+	printf("\nValor total da dívida: %.2f", vt_divida);
+	getch();
+	return 0;
+}

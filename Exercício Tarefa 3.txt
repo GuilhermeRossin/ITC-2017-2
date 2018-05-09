@@ -1,0 +1,47 @@
+1)
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+int main()
+{
+	double num = 63, soma = 0, fat = 1, x = 1;
+	int i, n;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite o número de termos: ");
+	scanf("%d", &n);
+	for(i=0; i<=n; i++){
+		soma = soma + num/fat;
+		num = num-2;
+		fat = fat*x;
+		x++;
+	}
+	printf("\nValor da soma: %f", soma);
+	getch();
+	return 0;
+}
+
+
+2)
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+int main()
+{
+	int num =0, num_linha, atual_linha = 1, termo_linha = 0;
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite a quantidade de linhas: ");
+	scanf("%d", &num_linha);
+	printf("\nNúmeros na ordem desejada:\n \n");
+	while(atual_linha<=num_linha){
+		num = 0;
+		termo_linha++;
+		while(num != termo_linha*termo_linha){
+			num = num+termo_linha;
+			printf("%d ", num);
+	}
+	printf("\n \n");
+	atual_linha++;	
+	}
+	getch();
+	return 0;
+}

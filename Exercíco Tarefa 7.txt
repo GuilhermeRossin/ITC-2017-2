@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+
+void preenche_matriz(float m[3][3]){
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			printf("\nMatriz posição [%d][%d]: ", i+1, j+1);
+			scanf("%f", &m[i][j]);
+		}
+	}
+}
+void sub_matriz(float mA[3][3], float mB[3][3], float sub[3][3]){
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			sub[i][j] = 2*mB[i][j] - mA[i][j];
+		}
+	}
+}
+void mult_matriz(float mA[3][3], float mB[3][3], float mult[3][3]){
+	int i, j, k;
+	for(i=0; i<3; i++){
+		for(j=0; j<3; j++){
+			mult[i][j] = 0;
+			for(k=0; k<3; k++){
+				mult[i][j] = mult[i][j] + mA[i][k]*mB[k][j];
+			}
+		}
+	}
+}
+void soma_final(float mult[3][3], float sub[3][3], float total[3][3]){
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			total[i][j] = mult[i][j] + sub[i][j];
+		}
+	}
+}
+void apresenta_matriz(float total[3][3]){
+	for(int i=0; i<3; i++){
+		for(int j=0; j<3; j++){
+			printf("%.0f ", total[i][j]);
+		}
+		printf("\n");
+	}
+}
+int main()
+{
+	float mA[3][3], mB[3][3], sub[3][3], mult[3][3], total[3][3];
+	setlocale(LC_ALL, "portuguese");
+	printf("Digite a matriz A");
+	preenche_matriz(mA);
+	printf("\n\nDigite a matriz B");
+	preenche_matriz(mB);
+	sub_matriz(mA, mB, sub);
+	mult_matriz(mA, mB, mult);
+	soma_final(mult, sub, total);
+	printf("\n\nMatriz resultado:\n");
+	apresenta_matriz(total);
+	getch();
+	return 0;
+}

@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <conio.h>
+#include <locale.h>
+
+int main()
+{
+	const int n = 10;
+	int i;
+	float vetor_num[n], soma = 0, media, maior_valor, menor_valor;
+	setlocale(LC_ALL, "portuguese");
+	for(i=0; i< n; i++)
+	{
+		printf("\nDigite o valor %d: ", i+1);
+		scanf("%f", &vetor_num[i]);
+	}
+	for(i=0; i<n; i++)
+	{
+		soma = soma + vetor_num[i];
+	}
+	media = soma/n;
+	printf("\nValor da soma é: %.2f e da média é: %.2f", soma, media);
+	maior_valor = vetor_num[0];
+	for(i=0; i<n; i++)
+	{
+		if(maior_valor < vetor_num[i])
+			maior_valor = vetor_num[i];
+	}
+	menor_valor = vetor_num[0];
+	for(i=0; i<n; i++)
+	{
+		if(menor_valor > vetor_num[i])
+			menor_valor = vetor_num[i];
+	}
+	printf("\nO menor valor é: %.0f e o maior é: %.0f", menor_valor, maior_valor);
+	printf("\nPosições dos números maiores que a média: ");
+	for(i=0; i<n; i++)
+	{
+		if(media < vetor_num[i])
+			printf("%d ", i+1);
+	}
+	getch();
+	return 0;
+}
